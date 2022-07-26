@@ -225,13 +225,14 @@ def main():
             i.blit(scr)
             if i.rct.colliderect(bkd.rct):
                 bkd.vx*=-1
-#得点表示　#荒井担当分
+        #得点表示　#荒井担当分
         font = pg.font.Font(None,100)
         text = font.render(f"{count2}:{count1}", True, (255,255,255))#得点を表示
         scr.sfc.blit(text, [750, 50])#得点を表示
         if kkt.rct.colliderect(bkd.rct):
             bkd.vx *= -1
         if sc.s1 == 5 and sc.s2 < 4 or sc.s2 == 5 and sc.s1 < 4: # どちらかが5点取ったらゲーム終了
+            return
         if sc.s1 == 5 and sc.s2 < 4: # どちらかが5点取ったらゲーム終了
             pg.mixer.music.stop()
             pg.mixer.music.load("ex06/fig/レベルアップ.mp3")
@@ -274,3 +275,4 @@ if __name__ == "__main__":
     main()
     pg.quit()
     sys.exit()
+
